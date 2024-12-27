@@ -1,0 +1,440 @@
+/* General App styles */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 97.5vh;
+  background: #2c3e50; /* Dark background for high contrast */
+  font-family: 'Roboto', sans-serif;
+  flex-direction: column;
+  color: #fff;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  color: #f39c12; /* Bright yellow/orange color to catch attention */
+  animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Game container */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 250px;
+  background: #e74c3c; /* Red background for the info box */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  margin-right: 30px;
+  animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.game-info p {
+  margin: 15px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.game-info select,
+button {
+  font-size: 1rem;
+  background-color: #f39c12; /* Bright yellow */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.game-info select:hover,
+button:hover {
+  background-color: #f1c40f; /* Lighter yellow/orange on hover */
+}
+
+/* Cards */
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 15px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #16a085; /* Teal for card background */
+  border-radius: 10px;
+  color: #fff; /* White text on teal cards */
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card.flipped {
+  background-color: #f39c12; /* Bright yellow when flipped */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Game Over text */
+.game-over {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 30px;
+  color: #2ecc71; /* Bright green for success */
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Instructions Modal */
+.instructions-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for better focus */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInModal 1s ease-out;
+}
+
+@keyframes fadeInModal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.instructions-content {
+  background-color: #ecf0f1; /* Light background for modal */
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  animation: slideInModal 1s ease-out;
+  color: #2c3e50; /* Dark text for better readability */
+}
+
+@keyframes slideInModal {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #f39c12; /* Bright yellow for buttons */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #f1c40f; /* Lighter yellow/orange on hover */
+}
+
+/* Add this CSS for the level-up popup and other styles */
+.level-up-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9); /* Dark background with slight transparency */
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  z-index: 10;
+  width: 80%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.level-up-popup .popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+.level-up-popup h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #ff9900; /* Vibrant contrast color */
+  font-weight: bold;
+}
+
+.level-up-popup p {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+.level-up-popup select {
+  margin-top: 10px;
+  padding: 8px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background-color: #009688; /* Contrasting background color */
+  color: white;
+  cursor: pointer;
+  width: 60%;
+}
+
+.level-up-popup select:focus {
+  background-color: #00796b; /* Darker shade on focus */
+}
+
+.game-info {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #333; /* Dark background for game info */
+  border-radius: 10px;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.game-info p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+.level-up-popup button {
+  padding: 12px 30px;
+  font-size: 1.2em;
+  margin-top: 20px;
+  background-color: #28a745; /* Green for action button */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.level-up-popup button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.level-up-popup button:focus {
+  outline: none;
+}
+
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+  .App {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .game-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .game-board {
+    grid-template-columns: repeat(3, 80px);
+  }
+
+  .card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .level-up-popup {
+    width: 90%;
+  }
+
+  .level-up-popup h2 {
+    font-size: 2rem;
+  }
+
+  .level-up-popup button {
+    width: 100%;
+  }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .App {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .game-container {
+    flex-direction: row;
+  }
+
+  .game-board {
+    grid-template-columns: repeat(4, 90px);
+  }
+
+  .card {
+    width: 90px;
+    height: 90px;
+  }
+
+  .level-up-popup {
+    width: 80%;
+  }
+
+  .level-up-popup h2 {
+    font-size: 2.2rem;
+  }
+
+  .level-up-popup button {
+    width: 100%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .game-container {
+    flex-direction: row;
+    width: 80%;
+  }
+
+  .game-board {
+    grid-template-columns: repeat(4, 100px);
+  }
+
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+
+  .level-up-popup {
+    width: 50%;
+  }
+
+  .level-up-popup h2 {
+    font-size: 2.5rem;
+  }
+
+  .level-up-popup button {
+    width: 100%;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+  .level-up-popup {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .level-up-popup h2 {
+    font-size: 1.8rem;
+  }
+
+  .level-up-popup p {
+    font-size: 1rem;
+  }
+
+  .level-up-popup select {
+    font-size: 1rem;
+    width: 80%;
+  }
+
+  .level-up-popup button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .level-up-popup {
+    width: 80%;
+    padding: 25px;
+  }
+
+  .level-up-popup h2 {
+    font-size: 2rem;
+  }
+
+  .level-up-popup p {
+    font-size: 1.1rem;
+  }
+
+  .level-up-popup select {
+    font-size: 1.1rem;
+    width: 70%;
+  }
+
+  .level-up-popup button {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
+
